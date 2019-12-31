@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "RtcDriver.h"
+#include "LowPowerDriver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -144,8 +145,15 @@ int main(void)
     /* USER CODE END WHILE */
 //	  HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 //	  HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+	  HAL_Delay(1000);
+	  for (int i =0; i<10; ++i)
+	  {
 	  HAL_Delay(200);
 	  HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	  }
+	  HAL_Delay(1000);
+	  lowPowerStopUntilInterrupt();
+	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
